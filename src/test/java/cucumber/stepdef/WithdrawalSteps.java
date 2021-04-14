@@ -29,8 +29,14 @@ public class WithdrawalSteps {
 	public void iRequest$(int requestedAmount) {
 	    helper.getTeller().withDrawCash(helper.getAccount(),requestedAmount);
 	}
+	
 	@Then("${int} should be dispensed")
 	public void $ShouldBeDispensed(int dispensedAmount) {
 	   Assert.assertEquals(dispensedAmount,helper.getCashSlot().getCashBalance());
+	}
+	
+	@Then("I should have balance of ${int} in my account")
+	public void i_should_have_balance_of_$_in_my_account(int RemainingBalance) {
+		Assert.assertEquals(RemainingBalance,helper.getAccount().getBalance() -helper.getCashSlot().getCashBalance());
 	}
 }

@@ -7,3 +7,4 @@ Feature: Withdraw cash from account
     Given I have a balance of $100 in my account
     When I request $20
     Then $20 should be dispensed
+    And I should have balance of $80 in my account
